@@ -26,3 +26,15 @@ Prints tasks based on filters:
 
 - print high;
 ```
+
+
+| File            | Description                                                                 |
+| --------------- | --------------------------------------------------------------------------- |
+| `parser.y`      | The **grammar rules** of TaskLang. Defines how each command is structured.  |
+| `lexer.l`       | The **token reader**. Detects keywords like `"task"`, `"print"`, etc.       |
+| `main.c`        | Starts the compiler and calls the parser.                                   |
+| `task_table.h`  | Describes what a "task" is (structure with description, priority, due date) |
+| `task_table.c`  | Handles task logic: add, complete, delete, print.                           |
+| `example1.task` | A simple test script.                                                       |
+| `example2.task` | A test script that uses `delete`.                                           |
+| `Makefile`      | Optional. Used to compile everything with one command.                      |
