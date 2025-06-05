@@ -11,5 +11,18 @@ complete "Buy milk";
 print all;
 
 
+# **What This Project Does**
+Adds new tasks with a description, optional priority, and optional due date
 
+Marks tasks as completed
+
+Deletes tasks by name
+
+Prints tasks based on filters:
+
+print all;
+
+print pending;
+
+print high;
 
