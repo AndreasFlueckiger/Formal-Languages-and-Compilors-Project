@@ -38,3 +38,17 @@ Prints tasks based on filters:
 | `example1.task` | A simple test script.                                                       |
 | `example2.task` | A test script that uses `delete`.                                           |
 | `Makefile`      | Optional. Used to compile everything with one command.                      |
+
+
+
+ **Example Input (example2.task)**
+ ```
+task "Finish report" priority = medium due = "2025-06-05";
+task "Clean room" priority = low;
+complete "Clean room";
+delete "Finish report";
+print all;
+```
+
+
+
