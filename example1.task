@@ -1,0 +1,6 @@
+task "Submit assignment" priority = high due = "2025-06-23";
+task "Buy groceries";
+task "Finish book" due = "2025-06-10";
+complete "Buy groceries";
+print all;
+print pending;

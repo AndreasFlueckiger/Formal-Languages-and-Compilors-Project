@@ -1,0 +1,6 @@
+task "Finish report" priority = medium due = "2025-06-05";
+task "Clean room" priority = low;
+task "Book dentist" due = "2025-06-20";
+complete "Clean room";
+delete "Finish report";
+print all;
