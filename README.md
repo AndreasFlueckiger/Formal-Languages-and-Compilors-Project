@@ -52,3 +52,21 @@ print all;
 
 
 
+# How to Compile and Run
+You need to be inside the folder (in WSL or Linux terminal):
+```
+bison -d parser.y
+mv parser.tab.c y.tab.c
+mv parser.tab.h y.tab.h
+flex lexer.l
+gcc -c y.tab.c
+gcc -c lex.yy.c
+gcc -c task_table.c
+gcc -c main.c
+gcc -o tasklang y.tab.o lex.yy.o task_table.o main.o -lfl
+```
+
+Then run it with:
+```
+./tasklang < example2.task
+```
