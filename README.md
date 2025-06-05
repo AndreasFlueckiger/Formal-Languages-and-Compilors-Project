@@ -2,7 +2,7 @@
 
 ## 📄 Project Documentation
 
-📄 [Click here to view the full PDF documentation](https://docs.google.com/document/d/1jDhlf-5knfU9hEsQ_Jcsu0lKwXiIWQpnqrLJ-tqIPVs/edit?usp=sharing)
+📄 [Click here to view the full documentation](https://docs.google.com/document/d/1jDhlf-5knfU9hEsQ_Jcsu0lKwXiIWQpnqrLJ-tqIPVs/edit?usp=sharing)
 
 # TaskLang Compiler
 
