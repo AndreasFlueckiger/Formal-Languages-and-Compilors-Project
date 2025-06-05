@@ -1,9 +1,13 @@
 # Formal-Languages-and-Compilors-Project
 
+## 📄 Project Documentation
+
+📄 [Click here to view the full PDF documentation](https://docs.google.com/document/d/1jDhlf-5knfU9hEsQ_Jcsu0lKwXiIWQpnqrLJ-tqIPVs/edit?usp=sharing)
+
 # TaskLang Compiler
 
-Welcome! This project is a **simple compiler** that understands a small language called **TaskLang**.  
-The goal is to let a computer read and understand commands like:
+Welcome! This project is a simple easy compiler that understands a small language called **TaskLang**.  
+The goal is to let a computer read and understand commands for example, like:
 
 ```tasklang
 task "Buy milk" priority = high;
