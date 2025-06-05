@@ -57,7 +57,7 @@ print all;
 
 
 # How to Compile and Run
-You need to be inside the folder (in WSL or Linux terminal):
+You need to be inside the folder (in WSL or Linux terminal, i've used Ubuntu):
 ```
 bison -d parser.y
 mv parser.tab.c y.tab.c
