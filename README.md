@@ -9,7 +9,7 @@ The goal is to let a computer read and understand commands like:
 task "Buy milk" priority = high;
 complete "Buy milk";
 print all;
-
+```
 
 # **What This Project Does**
 Adds new tasks with a description, optional priority, and optional due date
