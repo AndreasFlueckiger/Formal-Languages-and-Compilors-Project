@@ -6,5 +6,6 @@ void insert_task(char *desc, char *priority, char *due);
 void complete_task(char *desc);
 void delete_task(char *desc);
 void print_tasks(const char *filter);
+void free_task_table();
 
 #endif

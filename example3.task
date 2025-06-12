@@ -1,0 +1,15 @@
+task "Write thesis" priority = high due = "2025-07-01";
+task "Clean kitchen" priority = low;
+task "Buy groceries" priority = medium due = "2025-06-12";
+task "Reply to emails";
+
+complete "Clean kitchen";
+complete "Reply to emails";
+
+print all;
+print pending;
+print completed;
+print high;
+print medium;
+print low;
+print due "2025-06-12";

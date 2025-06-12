@@ -6,5 +6,7 @@ int yyparse(void);
 
 int main() {
     init_task_table();
-    return yyparse();
+    int result = yyparse();
+    free_task_table();
+    return result;
 }

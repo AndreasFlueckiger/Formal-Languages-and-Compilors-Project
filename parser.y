@@ -1,64 +1,56 @@
 %{
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "task_table.h"
 extern int yylex();
-
+void yyerror(const char *s) { fprintf(stderr, "Parse error: %s\n", s); }
 %}
 
 %union {
-    char* str;
+    char *str;
 }
 
 %token <str> STRING
-%token TASK PRIORITY DUE COMPLETE PRINT DELETE ALL PENDING HIGH MEDIUM LOW ASSIGN SEMICOLON
-%type <str> priority_opt due_opt
+%token TASK COMPLETE DELETE PRINT PRIORITY DUE ALL PENDING HIGH MEDIUM LOW COMPLETED DUE_FILTER
+%type <str> filter
+%type <str> optional_priority optional_due
 
 %%
 program:
-      program stmt
-    | /* empty */
+    program statement
+    |
     ;
 
-stmt:
-      task_decl SEMICOLON
-    | task_complete SEMICOLON
-    | task_delete SEMICOLON
-    | task_print SEMICOLON
-    ;
+statement:
+    TASK STRING optional_parts ';'       { insert_task($2, $3, $4); }
+  | COMPLETE STRING ';'                  { complete_task($2); }
+  | DELETE STRING ';'                    { delete_task($2); }
+  | PRINT filter ';'                     { print_tasks($2); }
+  ;
 
-task_decl:
-      TASK STRING priority_opt due_opt { insert_task($2, $3, $4); }
-    ;
+optional_parts:
+    optional_priority optional_due       { $$ = $1; $$ = $2; }
+  | optional_due optional_priority       { $$ = $2; $$ = $1; }
+  | optional_priority                    { $$ = $1; $$ = NULL; }
+  | optional_due                         { $$ = NULL; $$ = $1; }
+  |                                      { $$ = NULL; $$ = NULL; }
+  ;
 
-priority_opt:
-      PRIORITY ASSIGN HIGH    { $$ = "high"; }
-    | PRIORITY ASSIGN MEDIUM  { $$ = "medium"; }
-    | PRIORITY ASSIGN LOW     { $$ = "low"; }
-    | /* empty */             { $$ = NULL; }
-    ;
+optional_priority:
+    PRIORITY '=' STRING                  { $$ = $3; }
+  ;
 
-due_opt:
-      DUE ASSIGN STRING        { $$ = $3; }
-    | /* empty */             { $$ = NULL; }
-    ;
+optional_due:
+    DUE '=' STRING                       { $$ = $3; }
+  ;
 
-task_complete:
-      COMPLETE STRING { complete_task($2); }
-    ;
-
-task_delete:
-      DELETE STRING { delete_task($2); }
-    ;
-
-task_print:
-      PRINT ALL      { print_tasks("all"); }
-    | PRINT PENDING  { print_tasks("pending"); }
-    | PRINT HIGH     { print_tasks("high"); }
-    ;
-
+filter:
+    ALL                                  { $$ = "all"; }
+  | PENDING                              { $$ = "pending"; }
+  | COMPLETED                            { $$ = "completed"; }
+  | HIGH                                 { $$ = "high"; }
+  | MEDIUM                               { $$ = "medium"; }
+  | LOW                                  { $$ = "low"; }
+  | DUE_FILTER STRING                    { $$ = $2; }
+  ;
 %%
-void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
-}

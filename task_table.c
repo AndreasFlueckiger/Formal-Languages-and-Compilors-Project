@@ -20,6 +20,10 @@ void init_task_table() {
 }
 
 void insert_task(char *desc, char *priority, char *due) {
+    if (task_count >= MAX_TASKS) {
+        fprintf(stderr, "Max task limit reached.\n");
+        return;
+    }
     tasks[task_count].desc = strdup(desc);
     tasks[task_count].priority = priority ? strdup(priority) : NULL;
     tasks[task_count].due = due ? strdup(due) : NULL;
@@ -30,7 +34,7 @@ void insert_task(char *desc, char *priority, char *due) {
 
 void complete_task(char *desc) {
     for (int i = 0; i < task_count; i++) {
-        if (strcmp(tasks[i].desc, desc) == 0) {
+        if (strcasecmp(tasks[i].desc, desc) == 0) {
             tasks[i].completed = 1;
             printf("Task completed: %s\n", desc);
             return;
@@ -41,7 +45,7 @@ void complete_task(char *desc) {
 
 void delete_task(char *desc) {
     for (int i = 0; i < task_count; i++) {
-        if (strcmp(tasks[i].desc, desc) == 0) {
+        if (strcasecmp(tasks[i].desc, desc) == 0) {
             free(tasks[i].desc);
             if (tasks[i].priority) free(tasks[i].priority);
             if (tasks[i].due) free(tasks[i].due);
@@ -59,15 +63,33 @@ void delete_task(char *desc) {
 void print_tasks(const char *filter) {
     printf("--- Tasks (%s) ---\n", filter);
     for (int i = 0; i < task_count; i++) {
-        if ((strcmp(filter, "all") == 0) ||
-            (strcmp(filter, "pending") == 0 && !tasks[i].completed) ||
-            (strcmp(filter, "high") == 0 && tasks[i].priority && strcmp(tasks[i].priority, "high") == 0)) {
+        int match = 0;
 
-            printf("- %s [%s] %s %s\n",
+        if (strcmp(filter, "all") == 0)
+            match = 1;
+        else if (strcmp(filter, "pending") == 0 && !tasks[i].completed)
+            match = 1;
+        else if (strcmp(filter, "completed") == 0 && tasks[i].completed)
+            match = 1;
+        else if (tasks[i].priority && strcmp(filter, tasks[i].priority) == 0)
+            match = 1;
+        else if (tasks[i].due && strcmp(filter, tasks[i].due) == 0)
+            match = 1;
+
+        if (match) {
+            printf("- %-20s [%s] %-7s %s\n",
                    tasks[i].desc,
                    tasks[i].completed ? "done" : "todo",
                    tasks[i].priority ? tasks[i].priority : "",
                    tasks[i].due ? tasks[i].due : "");
         }
+    }
+}
+
+void free_task_table() {
+    for (int i = 0; i < task_count; i++) {
+        free(tasks[i].desc);
+        if (tasks[i].priority) free(tasks[i].priority);
+        if (tasks[i].due) free(tasks[i].due);
     }
 }
