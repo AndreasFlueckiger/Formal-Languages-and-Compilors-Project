@@ -1,9 +1,9 @@
+[![Italiano](https://img.shields.io/badge/lang-it-green.svg)](README.it.md)
+[![English](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
+
 # Progetto su Linguaggi Formali e Compilatori
 
-  
-
-🇮🇹 Italiano | 🇬🇧 [Read the English version](README.md)
-
+Benvenuto! Questa è la versione italiana del progetto.
   
 
 ## Documentazione del Progetto

@@ -1,7 +1,9 @@
-# Formal-Languages-and-Compilers-Project
+[![English](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
+[![Italiano](https://img.shields.io/badge/lang-it-green.svg)](README.it.md)
 
-🇬🇧 English | 🇮🇹 [Leggi la versione italiana](README.it.md)
+# Formal-Languages-and-Compilors-Project
 
+Welcome! This is the English version of the README.
 ##  Project Documentation
 
  [Click here to view the full documentation](https://docs.google.com/document/d/1jDhlf-5knfU9hEsQ_Jcsu0lKwXiIWQpnqrLJ-tqIPVs/edit?usp=sharing)
