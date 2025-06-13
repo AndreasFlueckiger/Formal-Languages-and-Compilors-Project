@@ -6,7 +6,7 @@
 Benvenuto! Questa è la versione italiana del progetto.
 
 ## Team Members
-- Student 1: Alexis Flückiger (ID)
+- Student 1: Alexis Flückiger (22870)
 - Student 2: Alexei Karavan (22528)
 
 
