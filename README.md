@@ -4,6 +4,10 @@
 # Formal-Languages-and-Compilors-Project
 
 Welcome! This is the English version of the README.
+
+## Team Members
+- Student 1: Alexis Flückiger (ID)
+- Student 2: Alexei Karavan (22528)
 ##  Project Documentation
 
  [Click here to view the full documentation](https://docs.google.com/document/d/1jDhlf-5knfU9hEsQ_Jcsu0lKwXiIWQpnqrLJ-tqIPVs/edit?usp=sharing)
