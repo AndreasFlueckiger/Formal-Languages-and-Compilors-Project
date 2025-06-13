@@ -6,7 +6,7 @@
 Welcome! This is the English version of the README.
 
 ## Team Members
-- Student 1: Alexis Flückiger (ID)
+- Student 1: Alexis Flückiger (22870)
 - Student 2: Alexei Karavan (22528)
 ##  Project Documentation
 
