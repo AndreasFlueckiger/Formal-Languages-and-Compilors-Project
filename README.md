@@ -1,4 +1,4 @@
-# Formal-Languages-and-Compilors-Project
+# Formal-Languages-and-Compilers-Project
 
 ##  Project Documentation
 
